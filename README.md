@@ -4,18 +4,30 @@ This application gets and prints Alma letters from a printout queue.
 
 ## Setup
 
-Download and install all files of this application on a PHP server. The PHP installation must have libcurl (for [cURL](https://www.php.net/manual/en/curl.requirements.php)) and libxml (for [SimpleXML](https://www.php.net/manual/en/simplexml.requirements.php)) installed and enabled.
-
 In the [Ex Libris Developer Network](https://developers.exlibrisgroup.com/), create an API key with the following permissions in your production environment:
 
 - Configuration, Read-only (used to get print queues)
 - Task-lists, Read/write (used to get printouts and modify their statuses)
+  - It may make sense to provision a read-only key for development
 
-In the application file functions.php:
+1) Copy `vars-example.php` to `vars.php` and edit `vars.php`.
+2) Enter your API key in the definition of `API_KEY`, inside the empty set of single quotes.
+3) In `SLIPS_PER_PAGE`, set the default number of columns to fit on one page. (Default: 4)
+4) In `SLIP_LIMIT`, define the maximum number of printouts to get per API request. (Default and API maximum: 100)
 
-1) Enter your API key in the definition of API_KEY, inside the empty set of single quotes.
-2) In SLIPS_PER_PAGE, set the default number of columns to fit on one page. (Default: 4)
-3) In SLIP_LIMIT, define the maximum number of printouts to get per API request. (Default and API maximum: 100)
+### Development
+
+You must have [Docker](https://www.docker.com/) and docker-compose. If you know
+how to adapt this for tools like Kubernetes, podman, etc., you can of course do
+that, but you're on your own.
+
+1) Build the image: `docker-compose build`.
+2) Copy `docker-compose.override-example.yml` to `docker-compose.override.yml` and modify if needed.
+3) Make sure your API key (in `vars.php`) is one you feel comfortable using in development. It may be better to have a production API key separately from your development key.
+
+### Production
+
+Download and install all files of this application on a PHP server. The PHP installation must have libcurl (for [cURL](https://www.php.net/manual/en/curl.requirements.php)) and libxml (for [SimpleXML](https://www.php.net/manual/en/simplexml.requirements.php)) installed and enabled.
 
 ## Use
 
