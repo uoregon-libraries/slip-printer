@@ -28,9 +28,9 @@ that, but you're on your own.
    development. It may be better to have a production API key separately from
    your development key.
 
-Run the stack! `docker-compose up`. Make sure you rebuild whenever code
-changes, or else you can manually mount your dirs into the running container,
-but a rebuild is fast enough that I'm not bothering with that for now.
+Run the stack! `docker-compose up`. If you don't use the docker overrides to
+mount local files into the running container, you'll need to rebuild and
+restart the container when you change code.
 
 ### Production
 
