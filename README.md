@@ -21,9 +21,16 @@ You must have [Docker](https://www.docker.com/) and docker-compose. If you know
 how to adapt this for tools like Kubernetes, podman, etc., you can of course do
 that, but you're on your own.
 
-1) Build the image: `docker-compose build`.
-2) Copy `docker-compose.override-example.yml` to `docker-compose.override.yml` and modify if needed.
-3) Make sure your API key (in `vars.php`) is one you feel comfortable using in development. It may be better to have a production API key separately from your development key.
+1. Build the image: `docker-compose build`.
+2. Copy `docker-compose.override-example.yml` to `docker-compose.override.yml`
+   and modify if needed.
+3. Make sure your API key (in `vars.php`) is one you feel comfortable using in
+   development. It may be better to have a production API key separately from
+   your development key.
+
+Run the stack! `docker-compose up`. Make sure you rebuild whenever code
+changes, or else you can manually mount your dirs into the running container,
+but a rebuild is fast enough that I'm not bothering with that for now.
 
 ### Production
 
