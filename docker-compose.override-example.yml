@@ -1,0 +1,6 @@
+version: '2.4'
+services:
+  web:
+    # Expose port 80 to the host for local testing
+    ports:
+      - 8080:80
